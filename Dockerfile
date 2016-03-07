@@ -6,11 +6,11 @@ RUN apt-get update && \
     apt-get install -y --force-yes -m python-pip python-m2crypto &&\
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-RUN apt-get -y install  wget
-
+    
 RUN pip install shadowsocks
 
-RUN wget  http://fs.d1sm.net/finalspeed/install_fs.sh
+RUN apt-get -y install curl
+RUN curl  http://fs.d1sm.net/finalspeed/install_fs.sh
 RUN chmod +x install_fs.sh
 
 ENV SS_SERVER_ADDR 0.0.0.0
