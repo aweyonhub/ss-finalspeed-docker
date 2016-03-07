@@ -6,7 +6,7 @@ RUN apt-get update && \
     apt-get install -y --force-yes -m python-pip python-m2crypto &&\
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-RUN apt-get install wget
+RUN apt-get install -y wget
 
 RUN pip install shadowsocks
 
