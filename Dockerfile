@@ -2,20 +2,14 @@ FROM ubuntu:trusty
 
 MAINTAINER jonechenug <jonechenug@gmail.com>
 
-RUN apt-get update -y
-RUN apt-get upgrade -y
-
-RUN apt-get -y install curl
-RUN curl  http://fs.d1sm.net/finalspeed/install_fs.sh
-RUN chmod +x install_fs.sh
-
-
 RUN apt-get update && \
     apt-get install -y --force-yes -m python-pip python-m2crypto &&\
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
     
 RUN pip install shadowsocks
+
+COPY install_fs.sh /usr/local/etc/install_fs.sh
 
 ENV SS_SERVER_ADDR 0.0.0.0
 ENV SS_SERVER_PORT 8388
@@ -28,4 +22,4 @@ RUN chmod 755 /start.sh
 
 EXPOSE $SS_SERVER_PORT
 
-CMD ./start.sh && ./install_fs.sh 2>&1 | tee install.log
+CMD ./start.sh && /usr/local/etc/install_fs.sh 2>&1 | tee install.log
