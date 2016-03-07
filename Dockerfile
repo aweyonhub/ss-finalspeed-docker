@@ -24,4 +24,4 @@ RUN chmod 755 /start.sh
 
 EXPOSE $SS_SERVER_PORT
 
-CMD /start.sh &&./install_fs.sh 2>&1 | tee install.log
+CMD ./start.sh && ./install_fs.sh 2>&1 | tee install.log
