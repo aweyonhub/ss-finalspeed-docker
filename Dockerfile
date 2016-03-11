@@ -13,9 +13,12 @@ RUN apt-get install -y --force-yes supervisor
 RUN mkdir -p /var/log/supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-COPY install_fs.sh ./install_fs.sh
-RUN ./install_fs.sh
-ADD /fs/ /fs/
+RUN apt-get -y install libpcap-dev
+RUN apt-get -y install iptables
+RUN apt-get install -y openjdk-7-jre
+
+RUN mkdir -p /fs
+COPY fs.jar /fs/fs.jar
 COPY fs_start.sh /fs/fs_start.sh
 
 RUN pip install shadowsocks
