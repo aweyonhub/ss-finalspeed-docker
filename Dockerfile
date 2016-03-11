@@ -1,12 +1,37 @@
-FROM ubuntu:trusty
+FROM ubuntu:14.04
 
 MAINTAINER jonechenug <jonechenug@gmail.com>
 
-COPY install_fs.sh /usr/local/etc/install_fs.sh
+RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
 
-COPY shadowsocks.sh /usr/local/etc/shadowsocks.sh
+RUN apt-get update
+RUN apt-get upgrade -y
 
+RUN apt-get install -y --force-yes -m python-pip python-m2crypto
 
-EXPOSE 8989
+RUN apt-get install -y --force-yes supervisor
+RUN mkdir -p /var/log/supervisor
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-CMD /usr/local/etc/shadowsocks.sh 2>&1 | tee shadowsocks.log && /usr/local/etc/install_fs.sh 2>&1 | tee install.log
+COPY install_fs.sh ./install_fs.sh
+RUN ./install_fs.sh
+ADD /fs/ /fs/
+COPY fs_start.sh /fs/fs_start.sh
+
+RUN pip install shadowsocks
+
+RUN apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+ 
+ENV SS_SERVER_ADDR 0.0.0.0
+ENV SS_SERVER_PORT 8388
+ENV SS_PASSWORD password
+ENV SS_METHOD aes-256-cfb
+ENV SS_TIMEOUT 300
+
+ADD start.sh /start.sh
+RUN chmod 755 /start.sh
+
+EXPOSE $SS_SERVER_PORT
+
+CMD ["/usr/bin/supervisord"]
