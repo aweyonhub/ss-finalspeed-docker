@@ -13,8 +13,9 @@ RUN apt-get install -y --force-yes supervisor
 RUN mkdir -p /var/log/supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-RUN apt-get -y install iptables
-RUN apt-get install -y openjdk-7-jre
+RUN apt-get install -y --force-yes libpcap-dev
+RUN apt-get install -y --force-yes iptables
+RUN apt-get install -y --force-yes openjdk-7-jre
 
 RUN mkdir -p /fs
 COPY fs.jar /fs/fs.jar
