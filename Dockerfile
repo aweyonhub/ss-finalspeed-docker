@@ -31,8 +31,6 @@ ENV SS_PASSWORD password
 ENV SS_METHOD aes-256-cfb
 ENV SS_TIMEOUT 300
 
-ADD start.sh /start.sh
-RUN chmod 755 /start.sh
 
 EXPOSE $SS_SERVER_PORT
 
