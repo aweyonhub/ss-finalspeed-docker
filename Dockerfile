@@ -20,6 +20,7 @@ RUN apt-get install -y openjdk-7-jre
 RUN mkdir -p /fs
 COPY fs.jar /fs/fs.jar
 COPY fs_start.sh /fs/fs_start.sh
+RUN chmod -R 755 /fs
 
 RUN pip install shadowsocks
 
