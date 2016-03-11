@@ -1,4 +1,4 @@
-FROM ubuntu:15.10
+FROM ubuntu:13.04
 
 MAINTAINER jonechenug <jonechenug@gmail.com>
 
