@@ -9,15 +9,15 @@ RUN apt-get install -y --force-yes -m python-pip python-m2crypto
 
 RUN apt-get install -y --force-yes supervisor
 RUN mkdir -p /var/log/supervisor
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 RUN apt-get install -y --force-yes libpcap-dev
 RUN apt-get install -y --force-yes iptables
 RUN apt-get install -y --force-yes openjdk-7-jre
 
 RUN mkdir -p /fs
-COPY fs.jar /fs/fs.jar
-COPY fs_start.sh /fs/fs_start.sh
+ADD fs.jar /fs/fs.jar
+ADD fs_start.sh /fs/fs_start.sh
 RUN chmod -R 755 /fs
 
 RUN pip install shadowsocks
@@ -31,6 +31,8 @@ ENV SS_PASSWORD password
 ENV SS_METHOD aes-256-cfb
 ENV SS_TIMEOUT 300
 
+ADD start.sh /start.sh
+RUN chmod 755 /start.sh
 
 EXPOSE $SS_SERVER_PORT
 
