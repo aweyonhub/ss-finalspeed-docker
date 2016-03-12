@@ -7,10 +7,6 @@ RUN apt-get upgrade -y
 
 RUN apt-get install -y --force-yes -m python-pip python-m2crypto
 
-RUN apt-get install -y --force-yes supervisor
-RUN mkdir -p /var/log/supervisor
-ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
 RUN apt-get install -y --force-yes libpcap-dev
 RUN apt-get install -y --force-yes iptables
 RUN apt-get install -y --force-yes openjdk-7-jre
@@ -36,4 +32,4 @@ RUN chmod 755 /start.sh
 
 EXPOSE $SS_SERVER_PORT
 
-CMD ["/usr/bin/supervisord"]
+CMD ["sh", "-c", "/start.sh","/fs/fs_start.sh"]
