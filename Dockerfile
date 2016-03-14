@@ -8,7 +8,6 @@ RUN apt-get upgrade -y
 RUN apt-get install -y --force-yes -m python-pip python-m2crypto
 
 RUN apt-get install -y --force-yes libpcap-dev
-RUN apt-get install -y --force-yes ufw
 RUN apt-get install -y --force-yes openjdk-7-jre
 
 RUN mkdir -p /fs
