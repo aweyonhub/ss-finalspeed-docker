@@ -9,6 +9,7 @@ RUN apt-get install -y --force-yes -m python-pip python-m2crypto
 
 RUN apt-get install -y --force-yes libpcap-dev
 RUN apt-get install -y --force-yes openjdk-7-jre
+RUN apt-get install -y --force-yes iptables
 RUN apt-get install -y --force-yes ufw
 
 RUN mkdir -p /fs
