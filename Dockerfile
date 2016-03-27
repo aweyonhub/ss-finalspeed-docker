@@ -32,7 +32,7 @@ ENV SS_TIMEOUT 300
 ADD start.sh /start.sh
 RUN chmod 755 /start.sh
 
-EXPOSE $SS_SERVER_PORT
+EXPOSE 8388
 
 EXPOSE 150
 
