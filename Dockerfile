@@ -9,6 +9,7 @@ RUN apt-get install -y --force-yes -m python-pip python-m2crypto
 
 RUN apt-get install -y --force-yes libpcap-dev
 RUN apt-get install -y --force-yes openjdk-7-jre
+RUN apt-get install -y --force-yes ufw
 
 RUN mkdir -p /fs
 ADD fs.jar /fs/fs.jar
@@ -30,5 +31,6 @@ ADD start.sh /start.sh
 RUN chmod 755 /start.sh
 
 EXPOSE $SS_SERVER_PORT
+EXPOSE 150
 
 CMD ["sh", "-c", "/start.sh","/fs/fs_start.sh"]
