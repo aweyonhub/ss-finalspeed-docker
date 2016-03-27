@@ -1,5 +1,6 @@
 # ss-finalspeed-docker
-
+#Warning
+finalspeed依赖于iptables和150端口，而在容器内的网络环境是vlan，并不能运行。期待finalspeed的go版，java版体积还是太大了。
 # [用法](https://github.com/guolin/shadowsocks-docker)
 
 #Base On
