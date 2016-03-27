@@ -3,7 +3,7 @@ FROM ubuntu:14.04
 MAINTAINER jonechenug <jonechenug@gmail.com>
 
 RUN apt-get update
-RUN apt-get upgrade -y
+RUN apt-get dist-upgrade -y
 
 RUN apt-get install -y --force-yes -m python-pip python-m2crypto
 
