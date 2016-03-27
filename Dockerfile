@@ -31,6 +31,7 @@ ADD start.sh /start.sh
 RUN chmod 755 /start.sh
 
 EXPOSE $SS_SERVER_PORT
+RUN ufw allow $SS_SERVER_PORT
 EXPOSE 150
 
 CMD ["sh", "-c", "/start.sh","/fs/fs_start.sh"]
