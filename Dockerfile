@@ -9,8 +9,7 @@ RUN apt-get install -y --force-yes -m python-pip python-m2crypto
 
 RUN apt-get install -y --force-yes libpcap-dev
 RUN apt-get install -y --force-yes openjdk-7-jre
-RUN apt-get install -y --force-yes ufw
-RUN ufw allow 8388
+
 
 RUN mkdir -p /fs
 ADD fs.jar /fs/fs.jar
