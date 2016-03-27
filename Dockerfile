@@ -20,6 +20,7 @@ RUN pip install shadowsocks
 
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
  
 ENV SS_SERVER_ADDR 0.0.0.0
 ENV SS_SERVER_PORT 8388
@@ -31,7 +32,7 @@ ADD start.sh /start.sh
 RUN chmod 755 /start.sh
 
 EXPOSE $SS_SERVER_PORT
-RUN ufw allow $SS_SERVER_PORT
+
 EXPOSE 150
 
 CMD ["sh", "-c", "/start.sh","/fs/fs_start.sh"]
