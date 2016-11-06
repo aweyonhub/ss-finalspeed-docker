@@ -21,7 +21,7 @@ RUN chmod 755 /start.sh
 
 RUN curl -sSL  https://github.com/ucoker/finalspeed/raw/master/install_fs.sh --output install_fs.sh \
     && chmod +x install_fs.sh \
-    && ./install_fs.sh 2>&1 | tee install.log
+    && ./install_fs.sh 2>&1 | tee install.log &
 
 EXPOSE $SS_SERVER_PORT
 
