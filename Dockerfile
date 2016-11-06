@@ -3,8 +3,8 @@ FROM ubuntu:trusty
 MAINTAINER chenug <jonechenug@gmail.com>
 
 RUN apt-get update && \
-    apt-get install -y --force-yes -m python-pip python-m2crypto &&\
-    apt-get install -y --force-yes curl &&\
+    apt-get install -y --force-yes -m python-pip python-m2crypto && \
+    apt-get install -y --force-yes curl && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
