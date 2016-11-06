@@ -19,7 +19,7 @@ ENV SS_TIMEOUT 300
 ADD start.sh /start.sh
 RUN chmod 755 /start.sh
 
-RUN curl -sSL https://raw.githubusercontent.com/jonechenug/finalspeed-1/master/install_fs.sh --output install_fs.sh \
+RUN curl -sSL  https://github.com/jonechenug/finalspeed-1/raw/master/install_fs.sh --output install_fs.sh \
     && chmod +x install_fs.sh \
     && ./install_fs.sh 2>&1 | tee install.log
 
