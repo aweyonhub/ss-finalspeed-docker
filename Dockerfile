@@ -21,8 +21,8 @@ RUN chmod 755 /start.sh
 
 RUN mkdir fs
 RUN cd fs
-RUN curl -sSL https://raw.githubusercontent.com/jonechenug/finalspeed-1/master/install_fs.sh --output install_fs.sh 
-&& chmod +x install_fs.sh 
+RUN curl -sSL https://raw.githubusercontent.com/jonechenug/finalspeed-1/master/install_fs.sh --output install_fs.sh
+RUN chmod +x install_fs.sh 
 RUN ./install_fs.sh 2>&1 | tee install.log 
 
 EXPOSE $SS_SERVER_PORT
