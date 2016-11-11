@@ -27,4 +27,6 @@ RUN curl -sSL https://raw.githubusercontent.com/jonechenug/finalspeed/master/ins
 
 EXPOSE $SS_SERVER_PORT
 
+EXPOSE 150
+
 CMD ["sh", "-c", "/start.sh"]
