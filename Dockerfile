@@ -27,4 +27,4 @@ RUN ./install_fs.sh 2>&1 | tee install.log
 
 EXPOSE $SS_SERVER_PORT
 
-CMD ["sh", "-c", "/start.sh","&&","/fs/start.sh &"]
+CMD ["sh", "-c", "/start.sh"]
