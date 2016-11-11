@@ -1,10 +1,8 @@
 # ss-finalspeed-docker
-#Warning
-finalspeed依赖于iptables和150端口，而在容器内的网络环境是vlan，并不能运行
-# [用法](https://github.com/guolin/shadowsocks-docker)
+docker run -d -p 8838:8838 -e SS_PASSWORD=password chenug/shadowsocks-finalspeed
 
 #Base On
 
 ## [guolin/shadowsocks-docker](https://github.com/guolin/shadowsocks-docker)
 
-## [d1sm/finalspeed](https://github.com/d1sm/finalspeed)
+## [ucoker/finalspeed](https://github.com/ucoker/finalspeed)
