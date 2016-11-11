@@ -6,5 +6,5 @@ echo " timeout: $SS_TIMEOUT  encryption method: $SS_METHOD "
 echo ""
 echo " Please remember the password!"
 echo "========================================================================"
-
+sh /fs/restart.sh
 ssserver -s $SS_SERVER_ADDR -p $SS_SERVER_PORT -k $SS_PASSWORD -m $SS_METHOD -t $SS_TIMEOUT
